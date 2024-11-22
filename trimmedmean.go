@@ -45,6 +45,7 @@ func TrimmedMean() {
 	// open file from the first user argument
 	f, err := os.Open(os.Args[1])
 	if err != nil {
+		fmt.Println(os.Args[1])
 		log.Fatal(err)
 	}
 
