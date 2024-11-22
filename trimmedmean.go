@@ -42,10 +42,11 @@ func Flatten(nestedSlices [][]string) []string {
 
 func TrimmedMean() {
 
+	fmt.Println(os.Args)
+
 	// open file from the first user argument
 	f, err := os.Open(os.Args[1])
 	if err != nil {
-		fmt.Println(os.Args[1])
 		log.Fatal(err)
 	}
 
