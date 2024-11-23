@@ -42,8 +42,6 @@ func Flatten(nestedSlices [][]string) []string {
 
 func TrimmedMean() {
 
-	fmt.Println(os.Args)
-
 	// open file from the first user argument
 	f, err := os.Open(os.Args[1])
 	if err != nil {
@@ -99,6 +97,8 @@ func TrimmedMean() {
 			filtered = append(filtered, value)
 		}
 	}
+
+	fmt.Println(filtered)
 
 	fmt.Println(Average(filtered))
 
