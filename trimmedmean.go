@@ -98,8 +98,6 @@ func TrimmedMean() {
 		}
 	}
 
-	fmt.Println(filtered)
-
 	fmt.Println(Average(filtered))
 
 }
