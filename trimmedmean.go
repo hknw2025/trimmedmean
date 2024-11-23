@@ -4,6 +4,7 @@ import (
 	"encoding/csv"
 	"fmt"
 	"log"
+	"math"
 	"os"
 	"sort"
 	"strconv"
@@ -38,6 +39,10 @@ func Flatten(nestedSlices [][]string) []string {
 		flatSlice = append(flatSlice, subSlice...) // Append all elements of subSlice
 	}
 	return flatSlice
+}
+
+func round(num float64) int {
+	return int(num + math.Copysign(0.5, num))
 }
 
 func TrimmedMean() {
@@ -92,13 +97,11 @@ func TrimmedMean() {
 	sort.Float64s(final_data)
 
 	for i, value := range final_data {
-		percentile := float64(i) / float64(len(final_data)-1) * 100
-		if percentile > float64(trim1) && percentile < float64(100-trim2) {
+		percentile := round(float64(i+1) / float64(len(final_data)) * 100)
+		if percentile > trim1 && percentile < 100-trim2 {
 			filtered = append(filtered, value)
 		}
 	}
-
-	fmt.Println(filtered)
 	fmt.Println(Average(filtered))
 
 }
