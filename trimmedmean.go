@@ -92,7 +92,7 @@ func TrimmedMean() {
 	sort.Float64s(final_data)
 
 	for i, value := range final_data {
-		percentile := float64(i) / float64(len(final_data)) * 100
+		percentile := float64(i) / float64(len(final_data)-1) * 100
 		if percentile > float64(trim1) && percentile < float64(100-trim2) {
 			filtered = append(filtered, value)
 		}
